@@ -18,7 +18,8 @@ public class CryptosController {
 
     @GetMapping("/price/{symbol}")
     public CryptoPrice getPrice(@PathVariable String symbol) {
-        log.info("Current price of " + symbol + " - " + cryptosServise.getPrice(symbol).getPrice());
-        return cryptosServise.getPrice(symbol);
+        CryptoPrice price = cryptosServise.getPrice(symbol);
+        log.info("Current price for " + symbol + " - " + price.getPrice());
+        return price;
     }
 }
